@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiConversorMoeda.MainPage"
+             Title= "Conversor de Moeda">
+
+    <!-- Define o layout vertical com espaçamento e preenchimento -->
+    <VerticalStackLayout Padding="16"
+                         Spacing="12">
+
+
+        <Grid ColumnDefinitions="*, *, Auto" RowDefinitions="Auto" >
+            <!-- * = ajuste do elemento para p tamanho disponivel de tela
+                        Auto = ajuste do tamanho de tela com base no tamanho do elemento Definiços de coluna + definiçôes de linha-->
+
+            <Picker x:Name="FromPicker" Grid.Column="0" Title="De:"  SelectedIndexChanged="OnPickerChanged">
+
+                <Picker.Items>
+
+                    <!--Opçoes de escolha para meu usuario-->
+
+                    <x:String>BRL</x:String>
+                    <x:String>USD</x:String>
+                    <x:String>EUR</x:String>
+                </Picker.Items>
+
+            </Picker>
+
+            <Picker x:Name="ToPicker" Grid.Column="1" Title="Para:" SelectedIndexChanged="OnPickerChanged">
+
+                <Picker.Items>
+
+                    <!--Opçoes de escolha para meu usuario-->
+
+                    <x:String>BRL</x:String>
+                    <x:String>USD</x:String>
+                    <x:String>EUR</x:String>
+                </Picker.Items>
+
+            </Picker>
+            <Button Grid.Column="2" Text="Inverter" Margin=" 10,0,0,0" Clicked="OnInverterClicked"/>
+            
+
+        </Grid>
+
+
+
+        <!--Entry cria uma caixa de dialogo-->
+        <Grid ColumnDefinitions="Auto, *" RowDefinitions="Auto">
+            <Label Text="Valor: " VerticalOptions="Center" Margin="0, 0, 20, 0"/>
+            <Entry x:Name="AmountEntry" Grid.Column="1"
+                       Placeholder="Ex : 100,00" Keyboard="Numeric"/>
+            <!--TextChanged="OnAmountChanged"/>-->
+
+        </Grid>
+
+        <Button Text="Converter"/>
+        <!--Clicked="OnConverterClicked"-->
+
+        <Label x:Name="ResultLabel" FontSize="18"
+               FontAttributes="Bold"/>
+
+        <Label x:Name="InfoLabel" FontSize="12" TextColor="Gray"/>
+
+    </VerticalStackLayout>
+
+</ContentPage>
